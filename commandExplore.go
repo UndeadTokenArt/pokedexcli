@@ -7,7 +7,7 @@ import (
 
 func callbackExplore(cfg *config, args ...string) error {
 	if len(args) != 1 {
-		return errors.New("No location area provided")
+		return errors.New("no location area provided")
 	}
 	locationAreaName := args[0]
 
@@ -15,7 +15,7 @@ func callbackExplore(cfg *config, args ...string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Pokemon in %s:", locationArea.Name)
+	fmt.Printf("Pokemon in %s:\n", locationArea.Name)
 	for _, pokemon := range locationArea.PokemonEncounters {
 		fmt.Printf(" - %s\n", pokemon.Pokemon.Name)
 	}

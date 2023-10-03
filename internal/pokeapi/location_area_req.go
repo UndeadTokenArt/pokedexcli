@@ -61,7 +61,7 @@ func (c *Client) ListLocationAreas(pageURL *string) (LocationAreasResp, error) {
 }
 
 func (c *Client) GetLocationArea(LocationAreaName string) (LocationArea, error) {
-	endpoint := "/location-area" + LocationAreaName
+	endpoint := "/location-area/" + LocationAreaName
 	fullURL := baseURL + endpoint
 
 	dat, ok := c.cache.Get(fullURL)
