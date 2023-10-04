@@ -16,7 +16,7 @@ func callbackCatch(cfg *config, args ...string) error {
 	if err != nil {
 		return err
 	}
-	const threshold = 50
+	threshold := 30 + cfg.playerXP
 	randNum := rand.Intn(pokemon.BaseExperience)
 	fmt.Println(pokemon.BaseExperience, randNum, threshold)
 	if randNum > threshold {
@@ -25,5 +25,9 @@ func callbackCatch(cfg *config, args ...string) error {
 
 	cfg.caughtPokemon[pokemonName] = pokemon
 	fmt.Printf("%s was Caught!\n", pokemonName)
+
+	// add experince to player
+	XP := pokemon.BaseExperience / 3
+	cfg.playerXP += cfg.playerXP + XP
 	return nil
 }
