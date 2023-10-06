@@ -26,8 +26,9 @@ func callbackCatch(cfg *config, args ...string) error {
 	cfg.caughtPokemon[pokemonName] = pokemon
 	fmt.Printf("%s was Caught!\n", pokemonName)
 
-	// add experince to player
+	// add experince to player from successful catch
 	XP := pokemon.BaseExperience / 3
 	cfg.playerXP += cfg.playerXP + XP
+	fmt.Printf("Player gained %v XP", XP)
 	return nil
 }
