@@ -3,6 +3,7 @@ package main
 import (
 	"time"
 
+	"github.com/undeadtokenart/pokedexcli/internal/player"
 	"github.com/undeadtokenart/pokedexcli/internal/pokeapi"
 )
 
@@ -12,6 +13,7 @@ type config struct {
 	previousLocationAreaURL *string
 	caughtPokemon           map[string]pokeapi.Pokemon
 	playerXP                int
+	playerInv               player.Inventory
 }
 
 func main() {
@@ -19,6 +21,7 @@ func main() {
 		pokeapiClient: pokeapi.NewClient(time.Hour),
 		caughtPokemon: make(map[string]pokeapi.Pokemon),
 		playerXP:      0,
+		playerInv:     player.Inventory{},
 	}
 
 	startrepl(&cfg)

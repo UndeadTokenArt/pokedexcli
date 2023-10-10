@@ -20,19 +20,16 @@ func (playerInv *Inventory) ThrowPokeBall(num int) error {
 }
 
 func (playerInv *Inventory) purchasPokeBalls(num int) error {
-	playerInv.pokeballs += num
 	cost := num * 30
 	if playerInv.gold <= cost {
-		return errors.New("You dont have enough Gold")
+		return errors.New("you dont have enough gold")
 	}
+	playerInv.pokeballs += num
 	playerInv.gold -= cost
 	fmt.Printf("Player now has purchased %v pokeballs\n Purchase cost: %v gold \nThey have %v Pokeballs in their backpack\n", num, cost, playerInv.pokeballs)
+	return nil
 }
 
-func (playerInv *Inventory) AddGoldToPlayer(num int) error {
-	if playerInv.gold < 1 {
-		return errors.New("player has no gold")
-	}
+func (playerInv *Inventory) AddGoldToPlayer(num int) {
 	playerInv.gold += num
-	return nil
 }

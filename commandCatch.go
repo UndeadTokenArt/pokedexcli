@@ -16,6 +16,7 @@ func callbackCatch(cfg *config, args ...string) error {
 	if err != nil {
 		return err
 	}
+
 	threshold := 30 + cfg.playerXP
 	randNum := rand.Intn(pokemon.BaseExperience)
 	fmt.Println(pokemon.BaseExperience, randNum, threshold)
