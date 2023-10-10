@@ -25,3 +25,4 @@ A command line interface for fetching and getting details about Pokemon
 - getting player Name?
 - messaging for throwing a pokeball
 - choose a team to go exploring with
+- a save state
