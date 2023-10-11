@@ -17,11 +17,16 @@ type config struct {
 }
 
 func main() {
+	client := player.Inventory{
+		Gold:      100,
+		Pokeballs: 10,
+	}
+
 	cfg := config{
 		pokeapiClient: pokeapi.NewClient(time.Hour),
 		caughtPokemon: make(map[string]pokeapi.Pokemon),
 		playerXP:      0,
-		playerInv:     player.Inventory{},
+		playerInv:     client,
 	}
 
 	startrepl(&cfg)

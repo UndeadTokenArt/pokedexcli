@@ -6,30 +6,30 @@ import (
 )
 
 type Inventory struct {
-	gold      int
-	pokeballs int
+	Gold      int
+	Pokeballs int
 }
 
 func (playerInv *Inventory) ThrowPokeBall(num int) error {
-	if playerInv.pokeballs < 1 {
+	if playerInv.Pokeballs < 1 {
 		return errors.New("player has no more pokeballs to throw")
 	}
-	playerInv.pokeballs -= num
-	fmt.Printf("Player has %v Pokeballs in thier backpack left\n", playerInv.pokeballs)
+	playerInv.Pokeballs -= num
+	fmt.Printf("Player has %v Pokeballs in thier backpack left\n", playerInv.Pokeballs)
 	return nil
 }
 
-func (playerInv *Inventory) purchasPokeBalls(num int) error {
+func (playerInv *Inventory) PurchasPokeBalls(num int) error {
 	cost := num * 30
-	if playerInv.gold <= cost {
+	if playerInv.Gold <= cost {
 		return errors.New("you dont have enough gold")
 	}
-	playerInv.pokeballs += num
-	playerInv.gold -= cost
-	fmt.Printf("Player now has purchased %v pokeballs\n Purchase cost: %v gold \nThey have %v Pokeballs in their backpack\n", num, cost, playerInv.pokeballs)
+	playerInv.Pokeballs += num
+	playerInv.Gold -= cost
+	fmt.Printf("Player now has purchased %v pokeballs\n Purchase cost: %v gold \nThey have %v Pokeballs in their backpack\n", num, cost, playerInv.Pokeballs)
 	return nil
 }
 
 func (playerInv *Inventory) AddGoldToPlayer(num int) {
-	playerInv.gold += num
+	playerInv.Gold += num
 }

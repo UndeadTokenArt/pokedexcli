@@ -17,6 +17,8 @@ func callbackCatch(cfg *config, args ...string) error {
 		return err
 	}
 
+	// Add the mechanic for calculating if a pokeball is there to be thrown
+
 	threshold := 30 + cfg.playerXP
 	randNum := rand.Intn(pokemon.BaseExperience)
 	fmt.Println(pokemon.BaseExperience, randNum, threshold)
