@@ -19,7 +19,7 @@ type config struct {
 func main() {
 	client := player.Inventory{
 		Gold:      100,
-		Pokeballs: 10,
+		Pokeballs: 1,
 	}
 
 	cfg := config{
