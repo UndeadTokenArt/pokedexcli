@@ -19,7 +19,7 @@ func callbackCatch(cfg *config, args ...string) error {
 
 	err = cfg.playerInv.ThrowPokeBall(1)
 	if err != nil {
-		return fmt.Errorf("Error: %s\n", err)
+		return fmt.Errorf("error: %s", err)
 	}
 
 	threshold := 30 + cfg.playerXP
