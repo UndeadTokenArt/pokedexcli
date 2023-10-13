@@ -12,7 +12,7 @@ func callShop(cfg *config, args ...string) error {
 		return err
 	}
 
-	fmt.Println("Location areas:")
+	fmt.Println("Items in shop:")
 	for _, area := range resp.Results {
 		fmt.Printf(" - %s\n", area.Name)
 	}
@@ -31,7 +31,7 @@ func callShopb(cfg *config, args ...string) error {
 		return err
 	}
 
-	fmt.Println("Location areas:")
+	fmt.Println("items in Shop (Previous):")
 	for _, area := range resp.Results {
 		fmt.Printf(" - %s\n", area.Name)
 	}
