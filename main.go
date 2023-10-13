@@ -11,6 +11,8 @@ type config struct {
 	pokeapiClient           pokeapi.Client
 	nextLocationAreaURL     *string
 	previousLocationAreaURL *string
+	nextItem                *string
+	previousItem            *string
 	caughtPokemon           map[string]pokeapi.Pokemon
 	playerXP                int
 	playerInv               player.Inventory

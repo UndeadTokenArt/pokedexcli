@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func (c *Client) ListLocationAreas(pageURL *string) (ListItemResp, error) {
-	endpoint := "/location-area"
+func (c *Client) ListItems(pageURL *string) (ListItemResp, error) {
+	endpoint := "/item"
 	fullURL := baseURL + endpoint
 
 	if pageURL != nil {
@@ -18,13 +18,13 @@ func (c *Client) ListLocationAreas(pageURL *string) (ListItemResp, error) {
 	dat, ok := c.cache.Get(fullURL)
 	if ok {
 		fmt.Println("cache hit!")
-		locationAreasResp := ListItemResp{}
-		err := json.Unmarshal(dat, &locationAreasResp)
+		listItemResp := ListItemResp{}
+		err := json.Unmarshal(dat, &listItemResp)
 		if err != nil {
 			return ListItemResp{}, err
 		}
 
-		return locationAreasResp, nil
+		return listItemResp, nil
 	}
 	fmt.Println("cache miss!")
 
@@ -60,7 +60,7 @@ func (c *Client) ListLocationAreas(pageURL *string) (ListItemResp, error) {
 
 }
 
-func (c *Client) GetLocationArea(LocationAreaName string) (LocationArea, error) {
+func (c *Client) GetItemList(LocationAreaName string) (LocationArea, error) {
 	endpoint := "/location-area/" + LocationAreaName
 	fullURL := baseURL + endpoint
 
