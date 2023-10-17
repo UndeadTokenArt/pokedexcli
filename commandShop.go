@@ -13,15 +13,15 @@ func callShop(cfg *config, args ...string) error {
 	}
 
 	fmt.Println("Items in shop:")
-	for _, area := range resp.Results {
-		fmt.Printf(" - %s\n", area.Name)
+	for _, item := range resp.Results {
+		fmt.Printf(" - %s\n", item.Name)
 	}
 	cfg.nextItem = resp.Next
 	cfg.previousItem = resp.Previous
 	return nil
 }
 
-func callShopb(cfg *config, args ...string) error {
+func callbackShopb(cfg *config, args ...string) error {
 	if cfg.previousItem == nil {
 		return errors.New("you are on the first page")
 	}
@@ -32,8 +32,8 @@ func callShopb(cfg *config, args ...string) error {
 	}
 
 	fmt.Println("items in Shop (Previous):")
-	for _, area := range resp.Results {
-		fmt.Printf(" - %s\n", area.Name)
+	for _, item := range resp.Results {
+		fmt.Printf(" - %s\n", item.Name)
 	}
 	cfg.nextItem = resp.Next
 	cfg.previousItem = resp.Previous

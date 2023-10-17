@@ -95,7 +95,12 @@ func getCommands() map[string]cliCommand {
 		"shopb": {
 			name:        "Shop",
 			description: "Get a list of 20 Items to shop for",
-			callback:    callShopb,
+			callback:    callbackShopb,
+		},
+		"buy": {
+			name:        "buy",
+			description: "Buy an Item from the shop",
+			callback:    callbackBuy,
 		},
 	}
 }

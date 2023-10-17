@@ -20,7 +20,7 @@ type config struct {
 
 func main() {
 	client := player.Inventory{
-		Gold:      100,
+		Gold:      1000,
 		Pokeballs: 10,
 	}
 
