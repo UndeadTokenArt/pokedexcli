@@ -15,7 +15,7 @@ A command line interface for fetching and getting details about Pokemon
 ## Things that would be kinda interesting to add:
 [x] number of poke balls to limit spamming Catch commmand
 [] A a shop for buying more items to make catching pokemon easier
-    [] !!!! fix bug where buying a poke-ball only gives it to you the first time and only gets the cost after the first attempt (possibly something to do with cache)
+    [x] !!!! fix bug where buying a poke-ball only gives it to you the first time and only gets the cost after the first attempt (possibly something to do with cache)
 [] Possibly limiting the amount of pokemon in an area before you have to leave to find new pokemon
     [] tracking your current location
     [] tracking of number of pokemon in area
