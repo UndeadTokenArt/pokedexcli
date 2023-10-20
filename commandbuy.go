@@ -14,11 +14,16 @@ func callbackBuy(cfg *config, args ...string) error {
 	itemName := args[0]
 
 	itemDetails, err := cfg.pokeapiClient.GetItemDetails(itemName)
+
+	pokeballs := cfg.playerInv.Pokeballs
+	gold := cfg.playerInv.Gold
+	cost := itemDetails.Cost
+
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Item costs:  %v:\n", itemDetails.Cost)
-	fmt.Printf("You have %v gold\n", cfg.playerInv.Gold)
+	fmt.Printf("Item costs:  %v:\n", cost)
+	fmt.Printf("You have %v gold\n", gold)
 	fmt.Printf("Would you like to buy %s?\n", itemDetails.Name)
 	fmt.Print(">")
 	scanner := bufio.NewScanner(os.Stdin)
@@ -34,14 +39,13 @@ func callbackBuy(cfg *config, args ...string) error {
 		}
 
 		if cleaned[0] == "yes" {
-			pokeballs := cfg.playerInv.Pokeballs
-			gold := cfg.playerInv.Gold
-			cost := itemDetails.Cost
+
 			if gold < cost {
 				return errors.New("not enough gold to make purchase")
 			}
 			gold -= cost
 			pokeballs += 1
+
 			fmt.Printf("You now have %v pokeballs and %v Gold\n", pokeballs, gold)
 			return nil
 		} else {
