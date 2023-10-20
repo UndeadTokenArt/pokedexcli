@@ -15,7 +15,7 @@ type config struct {
 	previousItem            *string
 	caughtPokemon           map[string]pokeapi.Pokemon
 	playerXP                int
-	playerInv               player.Inventory
+	playerInv               *player.Inventory
 }
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 		pokeapiClient: pokeapi.NewClient(time.Hour),
 		caughtPokemon: make(map[string]pokeapi.Pokemon),
 		playerXP:      0,
-		playerInv:     client,
+		playerInv:     &client,
 	}
 
 	startrepl(&cfg)

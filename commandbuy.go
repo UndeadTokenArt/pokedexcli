@@ -15,7 +15,6 @@ func callbackBuy(cfg *config, args ...string) error {
 
 	itemDetails, err := cfg.pokeapiClient.GetItemDetails(itemName)
 
-	pokeballs := cfg.playerInv.Pokeballs
 	gold := cfg.playerInv.Gold
 	cost := itemDetails.Cost
 
@@ -39,14 +38,7 @@ func callbackBuy(cfg *config, args ...string) error {
 		}
 
 		if cleaned[0] == "yes" {
-
-			if gold < cost {
-				return errors.New("not enough gold to make purchase")
-			}
-			gold -= cost
-			pokeballs += 1
-
-			fmt.Printf("You now have %v pokeballs and %v Gold\n", pokeballs, gold)
+			cfg.playerInv.PurchasPokeBalls(1)
 			return nil
 		} else {
 			return errors.New("declined to purchase")

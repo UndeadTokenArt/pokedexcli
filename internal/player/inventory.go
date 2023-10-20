@@ -20,7 +20,7 @@ func (playerInv *Inventory) ThrowPokeBall(num int) error {
 }
 
 func (playerInv *Inventory) PurchasPokeBalls(num int) error {
-	cost := num * 30
+	cost := num * 200
 	if playerInv.Gold <= cost {
 		return errors.New("you dont have enough gold")
 	}
